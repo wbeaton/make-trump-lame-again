@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make Trump Lame Again</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Make Trump Lame Again</h1>
+    <p class="mission">Focus your donations and volunteer time where they matter most. The closest races are where one extra dollar or one more door knock can flip a seat.</p>
+    <p class="source">Live odds from <a href="https://kalshi.com" target="_blank" rel="noopener">Kalshi</a> prediction markets &middot; Closest races first</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="senate">Senate</button>
+    <button class="tab" data-tab="house">House</button>
+  </nav>
+
+  <main>
+    <section id="senate" class="race-section active">
+      <div class="section-header">
+        <h2>Senate Races</h2>
+        <div class="control-bar" id="senate-control"></div>
+      </div>
+      <div class="race-grid" id="senate-grid">
+        <div class="loading">Loading Senate races...</div>
+      </div>
+    </section>
+
+    <section id="house" class="race-section">
+      <div class="section-header">
+        <h2>House Races</h2>
+        <div class="control-bar" id="house-control"></div>
+      </div>
+      <div class="race-grid" id="house-grid">
+        <div class="loading">Loading House races...</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Prices reflect market-implied probabilities. Not financial advice. Data updates on each page load.</p>
+  </footer>
+
+  <script src="candidates.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
