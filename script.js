@@ -1,6 +1,8 @@
-const KALSHI_BASE = 'https://api.elections.kalshi.com/trade-api/v2';
+const API_BASE = 'https://api.elections.kalshi.com/trade-api/v2';
 const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-const API_BASE = isLocal ? KALSHI_BASE : 'https://corsproxy.io/?' + encodeURIComponent(KALSHI_BASE);
+function wrapUrl(url) {
+  return isLocal ? url : 'https://corsproxy.io/?' + encodeURIComponent(url);
+}
 
 const STATE_NAMES = {
   AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',
@@ -35,7 +37,7 @@ async function processQueue() {
   const { url, retries, resolve, reject } = fetchQueue.shift();
 
   try {
-    const resp = await fetch(url);
+    const resp = await fetch(wrapUrl(url));
     if (resp.status === 429 && retries > 0) {
       // Re-queue with backoff
       await new Promise(r => setTimeout(r, 1000 + Math.random() * 1000));
